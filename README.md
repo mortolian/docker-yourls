@@ -1,6 +1,7 @@
 # YOURL.org
 
 The de facto standard self-hosted URL shortener. This is my mini repo for YOURL setups and notes.
+This is my quick implementation for self hosting purposes.
 
 # MySQL Entry Point Database Setup
 
