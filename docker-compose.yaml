@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  yourls:
+    image: yourls
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      YOURLS_DB_PASS: 2.password.1
+      YOURLS_SITE: http://localhost:8080
+      YOURLS_USER: admin
+      YOURLS_PASS: admin
+
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 2.password.1
+      MYSQL_DATABASE: yourls
+    ports:
+      - 3306:3306
+    volumes:
+      - ./storage/db:/var/lib/mysql:rw
+      - ./mysql-data:/docker-entrypoint-initdb.d:rw
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
